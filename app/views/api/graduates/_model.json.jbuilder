@@ -1,0 +1,1 @@
+json.(graduate, :id, :name)

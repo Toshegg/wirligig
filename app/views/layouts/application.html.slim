@@ -1,0 +1,11 @@
+doctype html
+html(ng-app="students")
+  head
+    title(ng-bind='title')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    ui-view(name='navbar')
+    .content style="height: 100%"
+      main ui-view='' name='content' ng-scrollbars='' style="height:100%" ng-scrollbars-config="{scrollInertia: 200, theme: 'minimal-dark'}"

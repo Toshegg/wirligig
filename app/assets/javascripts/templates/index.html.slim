@@ -1,0 +1,125 @@
+.col-sm-24.top-block-first
+  .row
+    .col-sm-16.col-sm-offset-4.welcome
+      span welcome
+  .row
+    .col-sm-14.col-sm-offset-5.start-study
+      span Start study everywhere!
+  .row
+    .col-sm-14.col-sm-offset-5.how-it-works
+      a href='#'
+        span.howworks How it works
+
+
+.col-sm-24.search-universities
+  .row.inner-search
+    .col-sm-12.col-sm-offset-6
+      .row.no-gutters
+        .col-sm-7
+          select.form-control.search-select ng-options="country.id as country.name for country in countries" ng-model="filter.country_id"
+            option value='' selected='' Choose country
+        .col-sm-7
+          select.form-control.search-select ng-options="city.id as city.name for city in cities" ng-model="filter.city_id"
+            option value='' selected='' Choose city
+        .col-sm-7
+          select.form-control.search-select ng-options="course.id as course.name for course in courses" ng-model="filter.course_id"
+            option value='' selected='' Choose specialization
+        .col-sm-3
+          button.btn.btn-lg.btn-danger.btn-go ui-sref="main.universities.index({filter: filter})" Go
+
+
+.col-sm-24.top-block-second
+  .row
+    .col-sm-16.col-sm-offset-4.img
+      h3 Choose country
+  .row
+    .col-sm-16.col-sm-offset-4
+      img.map-image src="#{asset_url("map.jpg")}"
+
+.col-sm-24.color-lines
+  .row
+    .col-sm-24.orange5
+      .col-sm-8.col-sm-offset-4.line-title
+        span Choose country
+      .col-sm-8.line-article
+        span So many different countries, cultures and spacess! Choose your own, and learn what you like in the new environment, learning another language, find new friends!
+
+
+.col-sm-24.color-lines
+  .row
+    .col-sm-24.pink
+      .col-sm-8.col-sm-offset-4.line-article
+        span  Hundreds of specialties, which you can learn in this world! You can become a professional in any direction and in any country. Choose the one that is to the end of your study will be the most popular.
+      .col-sm-8.line-title
+        span Choose speciality
+
+.col-sm-24.color-lines
+  .row
+    .col-sm-24.green
+      .col-sm-8.col-sm-offset-4.line-title
+        span Choose price
+      .col-sm-8.line-article
+        span Calculate your costs in advance, not only for education, but to live in a country that you choose. Through the settings, you can learn about the different accommodation options, the cost of food and entertainment.
+
+.col-sm-24.top-block-forth
+  .row
+    .col-sm-5.col-sm-offset-3
+     thumbnail-index.block-ad
+        .caption.d5
+          span
+            .price $5
+            i.fa.fa-plus
+          p Full access to our website for a 5 days. And we give you beatifull profile where you can save your research results.
+    .col-sm-5.col-sm-offset-1
+      thumbnail-index.block-ad
+        .caption.d20
+          span
+            .price $20
+            i.fa.fa-plus
+          p Consultations to choose a university, living in another country and other useful information for those who already knows what he wants.
+    .col-sm-5.col-sm-offset-1
+      thumbnail-index.block-ad
+        .caption.d-free
+          span
+            .price Free
+            i.fa.fa-plus
+          p If you help to us we will give you free access. Learn more about this. Or for free you can take a tour right here and right now.
+
+.col-sm-24.landing-video
+  .row
+    .col-sm-16.col-sm-offset-4
+      .embed-responsive.embed-responsive-16by9
+        iframe.embed-responsive-item src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"
+
+.col-sm-24.ad-text
+  .row
+    .col-sm-12.col-sm-offset-6
+      p Education in another country - it is a serious decision. With this solution really begins a new life. Because education in another country is always much more than just learning. These are new people, culture and language. This new knowledge and change, because your past stays at home, and you do your future self.We invite to study in other countries - this experience with anything not comparable and forever changes each of us. Such solutions are born from the impulse Whirligig helps him to turn around.
+
+.col-sm-24.top-block-seventh
+  .col-sm-8.col-sm-offset-3.variant
+    h3 Add University and get free full access to WBD
+    a href='#'
+      span.info Get it free
+  /.col-sm-2.or
+    h3 OR
+  .col-sm-8.col-sm-offset-2.variant
+    h3 Pay and find your University right now!
+    a href='#'
+      span.info Pay and find!
+
+.col-sm-24.footer
+  /.row
+    .col-sm-4.col-sm-offset-2.footer-form
+      .form-group
+        select.select-footer.form-control id="language"
+          option English
+          option Russian
+          option Chinese
+  .row
+    .col-sm-20.col-sm-offset-2
+      .footer-line
+  .row
+    .col-sm-16.col-sm-offset-4.join-us
+      p Join Us
+      p.copywrite ©Wirligig, Inc.

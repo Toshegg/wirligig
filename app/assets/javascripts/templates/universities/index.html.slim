@@ -1,0 +1,41 @@
+.col-sm-16.col-xs-24.col-sm-offset-4.universities-container
+.container-fluid
+  .row
+    .col-sm-16.col-sm-offset-4
+      .container-fluid
+        .row
+          .adduniversity-title All Universities
+      .container-fluid.group
+        .row.form-group
+          .col-sm-5.no-padding-right
+            select.form-control.search-select ng-options="country.id as country.name for country in countries" ng-model="filter.country_id"
+              option value='' selected='' Choose country
+          .col-sm-5.no-padding-all
+            select.form-control.search-select ng-options="city.id as city.name for city in cities" ng-model="filter.city_id"
+              option value='' selected='' Choose city
+          .col-sm-5.no-padding-all
+            select.form-control.search-select ng-options="course.id as course.name for course in courses" ng-model="filter.course_id"
+              option value='' selected='' Choose specialization
+          .col-sm-9.no-padding-left
+            input.form-control.search-input placeholder="Find university of your dream" ng-model="filter.name"
+      .container-fluid
+        .row
+          .col-sm-12.col-lg-8(ng-repeat-start="university in universities track by $index")
+            .thumbnail
+              .university-actions ng-if="$parent.user.id == university.creator_id || $parent.user.is_admin"
+                i.fa.fa-times.university-actions.destroy-university confirmed-click="destroy(university)" ng-confirm-click="Are you sure want to remove university?"
+                i.fa.fa-pencil.university-actions.edit-university ui-sref="main.universities.update({id: university.id})"
+              .thumbnail-content ng-if="!$parent.user.is_paid" ng-click="pay_modal()"
+                .avatar-container
+                  img.avatar alt="100%x200" data-holder-rendered="true" ng-src="{{university.avatar.medium}}"
+                .caption
+                  .caption-text {{university.name}}
+                  .caption-text ng-if="university.city && university.country" {{university.city.name}}, {{university.country.name}}  
+              .thumbnail-content ng-if="$parent.user.is_paid || $parent.user.is_admin" ui-sref="main.universities.show({id: university.id})"
+                .avatar-container
+                  img.avatar alt="100%x200" data-holder-rendered="true" ng-src="{{university.avatar.medium}}"
+                .caption
+                  .caption-text {{university.name}}
+                  .caption-text ng-if="university.city && university.country" {{university.city.name}}, {{university.country.name}}  
+          .clearfix ng-if="$index%3==2"
+          div ng-repeat-end=""

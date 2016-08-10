@@ -1,0 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,400italic,700&subset=latin,cyrillic-ext,latin-ext);
+
+.top-block-first{
+  padding-top: 10%;
+  padding-bottom: 10%;
+
+}
+.welcome{
+  font-size: 15vw;
+  color: #ffdb31;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
+}
+.start-study{
+  color: white;
+  font-size: 40px;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
+}
+.how-it-works{
+  font-size: 40px;
+  font-family: "Tahoma";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 3%;
+
+
+  & > a{
+    color: white;
+    text-decoration: none;
+    border: 0.2em solid white;
+    padding: 1%;
+    text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
+    white-space: nowrap;
+
+    &:hover{
+      color: #6bddfa;
+      text-decoration: none;
+      border: 0.2em solid #6bddfa;
+    }
+  }
+
+}
+
+.top-block-second{
+background: @green;
+}
+img{max-width: 100%;
+  height: auto;
+  display: block;
+}
+.img{
+  & > h3{
+    padding-top: 5%;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+}
+.orange5{
+  .orange1(@orange)
+}
+
+.line-title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 45px;
+  color: white;
+}
+.line-article{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.pink{
+  background: @pink;
+  padding: 30px;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.27);
+  position: relative;
+  border: 1px solid @pink;
+}
+.pink::after, .pink::before {
+  content: '';
+  position: absolute;
+  background: @pink;
+  left: 10%; bottom: -11px;
+  width: 20px; height: 20px;
+  box-shadow: 0 0 7px #000; /* Добавляем тень для уголка */
+  z-index: -1; /* Прячем за основным блоком */
+  transform: rotate(45deg); /* Поворачиваем на 45º */
+  -webkit-transform: rotate(45deg);
+}
+.pink::before {
+  z-index: 1; /* Накладываем поверх, чтобы скрыть следы тени */
+  box-shadow: none; /* Прячем тень */
+}
+.green{
+  background: @green;
+  padding: 30px;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.27);
+  position: relative;
+  border: 1px solid @green;
+}
+.green::after, .green::before {
+  content: '';
+  position: absolute;
+  background: @green;
+  right: 10%; bottom: -11px;
+  width: 20px; height: 20px;
+  box-shadow: 0 0 7px #000; /* Добавляем тень для уголка */
+  z-index: -1; /* Прячем за основным блоком */
+  transform: rotate(45deg); /* Поворачиваем на 45º */
+  -webkit-transform: rotate(45deg);
+}
+.green::before {
+  z-index: 1; /* Накладываем поверх, чтобы скрыть следы тени */
+  box-shadow: none; /* Прячем тень */
+}
+.top-block-forth{
+  background: @gray;
+  padding: 5%;
+}
+.buy-now{
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+.d5{
+  .caption(@orange);
+}
+.d20{
+  .caption(@pink);
+}
+.d-free{
+  .caption(@green);
+}
+.ad-text{
+  background: @orange;
+  padding:20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: black;
+}
+.top-block-seventh{
+  background: @green;
+  padding-bottom:5%;
+  padding-top:2%;
+}
+.variant{
+  & > h3{
+    color: white;
+    font-size : 25px;
+    text-align: center;
+    margin-bottom: 10%;
+    font-weight: normal;
+  }
+  & > a{
+    color: white;
+    text-decoration: none;
+    border: 0.2em solid #e14b64;
+    border-radius: 5px;
+    padding: 2%;
+    white-space: nowrap;
+    font-size: 40px;
+    background: @pink;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    white-space: normal;
+  }
+  & > a:hover{
+    color: white;
+    text-decoration: none;
+    border: 0.2em solid #c6374f;
+    border-radius: 5px;
+    padding: 2%;
+    white-space: nowrap;
+    font-size: 40px;
+    background: #c6374f;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+  }
+}
+.footer{
+  background: @gray;
+}
+.select-footer{
+  padding-top: 5%;
+  background: #565a5c;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+  border: none;
+  color: @light-gray;
+  width: 100%;
+}
+.footer-form{
+  padding-top: 2%;
+}
+.join-us{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 1%;
+  & > .copywrite{
+    color: @light-gray;
+    font-weight: normal;
+  }
+}
+.footer-line{
+  height: 1px;
+  width: 100%;
+  background: #565a5c;
+  margin-top: 3%;
+}
+.landing-video{
+  padding: 5%;
+  background: @blue;
+}
+.thumbnail.thumbnail-index {   
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.map-image {
+  margin: auto;
+}

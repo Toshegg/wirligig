@@ -1,0 +1,85 @@
+.col-sm-16.col-xs-24.col-sm-offset-4.universities-container
+.container-fluid
+  .row
+    .col-sm-16.col-sm-offset-4
+      .container-fluid
+        .row
+          .adduniversity-title Vocabularies
+
+      .container-fluid
+        .row
+          .col-sm-24
+            .form-group.voc-title
+              h3 Study languages
+              button.btn.btn-success type="button" ng-click="add_study_language()" Add
+
+            .form-group
+              table.table.table-bordered.voc-table
+                thead
+                  th Name
+                  th Edit
+                  th Delete
+                tbody
+                  tr ng-repeat="study_language in study_languages"
+                    td 
+                      div ng-class="{hidden: study_language.editting}" {{study_language.name}}
+                      input.form-control.form-control-custom ng-class="{hidden: !study_language.editting}" ng-model="study_language.name"
+                    td 
+                      button.btn.btn-warning type="button" ng-class="{hidden: study_language.editting}" ng-click="edit_study_language(study_language)"
+                        span.glyphicon.glyphicon-edit aria-hidden="true" 
+                      button.btn.btn-success type="button" ng-class="{hidden: !study_language.editting}" ng-click="save_study_language(study_language)"
+                        span.glyphicon.glyphicon-ok aria-hidden="true" 
+                    td
+                      button.btn.btn-danger type="button" ng-click="destroy_study_language(study_language)"
+                        span.glyphicon.glyphicon-remove aria-hidden="true" 
+
+          .col-sm-24
+            .form-group.voc-title
+              h3 Exams
+              button.btn.btn-success type="button" ng-click="add_exam()" Add
+
+            .form-group
+              table.table.table-bordered.voc-table
+                thead
+                  th Name
+                  th Edit
+                  th Delete
+                tbody
+                  tr ng-repeat="exam in exams"
+                    td 
+                      div ng-class="{hidden: exam.editting}" {{exam.name}}
+                      input.form-control.form-control-custom ng-class="{hidden: !exam.editting}" ng-model="exam.name"
+                    td 
+                      button.btn.btn-warning type="button" ng-class="{hidden: exam.editting}" ng-click="edit_exam(exam)"
+                        span.glyphicon.glyphicon-edit aria-hidden="true" 
+                      button.btn.btn-success type="button" ng-class="{hidden: !exam.editting}" ng-click="save_exam(exam)"
+                        span.glyphicon.glyphicon-ok aria-hidden="true" 
+                    td
+                      button.btn.btn-danger type="button" ng-click="destroy_exam(exam)"
+                        span.glyphicon.glyphicon-remove aria-hidden="true" 
+
+          .col-sm-24
+            .form-group.voc-title
+              h3 Graduates
+              button.btn.btn-success type="button" ng-click="add_graduate()" Add
+
+            .form-group
+              table.table.table-bordered.voc-table
+                thead
+                  th Name
+                  th Edit
+                  th Delete
+                tbody
+                  tr ng-repeat="graduate in graduates"
+                    td 
+                      div ng-class="{hidden: graduate.editting}" {{graduate.name}}
+                      input.form-control.form-control-custom ng-class="{hidden: !graduate.editting}" ng-model="graduate.name"
+                    td 
+                      button.btn.btn-warning type="button" ng-class="{hidden: graduate.editting}" ng-click="edit_graduate(graduate)"
+                        span.glyphicon.glyphicon-edit aria-hidden="true" 
+                      button.btn.btn-success type="button" ng-class="{hidden: !graduate.editting}" ng-click="save_graduate(graduate)"
+                        span.glyphicon.glyphicon-ok aria-hidden="true" 
+                    td
+                      button.btn.btn-danger type="button" ng-click="destroy_graduate(graduate)"
+                        span.glyphicon.glyphicon-remove aria-hidden="true" 
+

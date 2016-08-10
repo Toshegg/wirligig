@@ -1,0 +1,22 @@
+.col-sm-16.col-xs-24.col-sm-offset-4.universities-container
+.container-fluid
+  .row
+    .col-sm-16.col-sm-offset-4
+      .container-fluid
+        .row
+          .adduniversity-title Users manage
+
+      .container-fluid.group
+        .row
+          .col-sm-24.form-group ng-repeat="u in users track by $index"
+            .col-sm-4
+              span.user-email {{u.email}}
+            .col-sm-4
+              .checkbox.checkbox-circle.checkbox-info
+                input id="is-admin-{{$index}}" type="checkbox" ng-model="u.is_admin" ng-click="update(u)"
+                label for="is-admin-{{$index}}" Admin
+            .col-sm-4
+              .checkbox.checkbox-circle.checkbox-info
+                input id="is-partner-{{$index}}" type="checkbox" ng-model="u.is_partner" ng-click="update(u)"
+                label for="is-partner-{{$index}}" Partner
+

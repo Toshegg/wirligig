@@ -1,0 +1,117 @@
+.col-sm-16.col-xs-24.col-sm-offset-4.universities-container
+.container-fluid
+  .row
+    .col-sm-16.col-sm-offset-4
+      .container-fluid
+        .row
+          .adduniversity-title Update university
+            
+          .col-sm-24
+            .upload-queue
+              input type="file" name="file" id="file-input" class="inputfile" nv-file-select='' uploader="uploader"
+              label for="file-input" 
+                i.fa.fa-upload
+                | Choose university photos
+              ul
+                li ng-repeat="item in uploader.queue"
+                  span ng-bind="item.file.name"
+                  i.fa.fa-times ng-click="uploader.removeFromQueue(item)"
+                li ng-repeat="photo in photos"
+                  span ng-bind="photo.image_file_name"
+                  i.fa.fa-times ng-click="destroy_photo(photo)"
+
+
+          .col-sm-8.col-sm-offset-4
+            .step1 Step 1
+          .col-sm-8
+            .howto Location
+          .col-sm-24.form-group
+            select.form-control.form-control-custom ng-options="country.id as country.name for country in countries" ng-model="university.country_id"
+              option value='' disabled='' selected='' Choose country
+          .col-sm-24.form-group
+            select.form-control.form-control-custom ng-options="city.id as city.name for city in cities" ng-model="university.city_id"
+              option value='' disabled='' selected='' Choose city 
+
+          .col-sm-24.form-group
+            .checkbox.checkbox-circle.checkbox-info
+              input id="foreign-students-checkbox" type="checkbox" ng-model="university.foreign_students"
+              label for="foreign-students-checkbox" Foreign students allowed
+          
+          .col-sm-24.form-group
+            .checkbox.checkbox-circle.checkbox-info
+              input id="provides-dormitory-checkbox" type="checkbox" ng-model="university.provides_dormitory"
+              label for="provides-dormitory-checkbox" Provides dormitory
+          
+          .col-sm-24.form-group
+            .checkbox.checkbox-circle.checkbox-info
+              input id="show-name-checkbox" type="checkbox" ng-model="university.show_name"
+              label for="show-name-checkbox" Show my name
+
+
+          .col-sm-24.form-group
+            select.form-control.form-control-custom ng-options="language_code.id as language_code.name for language_code in language_codes" ng-model="language"
+              option value='' disabled='' selected='' Choose language of description
+
+      .container-fluid ng-if="language"
+        .row
+          .col-sm-8.col-sm-offset-4
+            .step1 Step 2
+          .col-sm-8
+            .howto Main info
+          .col-sm-24.form-group
+            input.form-control.form-control-custom placeholder="Enter university name" ng-model="info.name"
+
+          .col-sm-24.form-group
+            input.form-control.form-control-custom placeholder="Web Site" ng-model="info.web_site"
+
+          .col-sm-8.col-sm-offset-4
+            .step1 Step 3
+          .col-sm-8
+            .howto Courses
+
+          .col-sm-24.form-group
+            .form-group
+              button.btn.btn-warning type="button" ng-click="add_study_language()" Add study language
+            .form-group ng-repeat="info_study_language in info.infos_study_languages"
+              .row
+                .col-sm-20
+                  select.form-control.form-control-custom ng-options="study_language.id as study_language.name for study_language in study_languages" ng-model="info_study_language.study_language_id"
+                .col-sm-4
+                  button.btn.btn-danger type="button" ng-click="remove_study_language(info_study_language)" 
+                    span.glyphicon.glyphicon-remove aria-hidden="true" 
+
+          .col-sm-24.form-group
+            button.btn.btn-warning type="button" ng-click="add_course()" Add Course
+
+          .col-sm-24.form-group ng-repeat="course in info.courses"
+            .row
+              .col-sm-6
+                input.form-control.form-control-custom placeholder="Course Title" ng-model="course.name"
+              .col-sm-4
+                input.form-control.form-control-custom placeholder="Price" ng-model="course.price"
+              .col-sm-6
+                .form-group
+                  button.btn.btn-warning type="button" ng-click="add_exam(course)" Add Exam
+                .form-group ng-repeat="course_exam in course.courses_exams"
+                  .row
+                    .col-sm-16
+                      select.form-control.form-control-custom ng-options="exam.id as exam.name for exam in exams" ng-model="course_exam.exam_id"
+                    .col-sm-4
+                      button.btn.btn-danger type="button" ng-click="remove_exam($parent.course, course_exam)" 
+                        span.glyphicon.glyphicon-remove aria-hidden="true" 
+              .col-sm-6
+                .form-group
+                  button.btn.btn-warning type="button" ng-click="add_graduate(course)" Add Graduate
+                .form-group ng-repeat="course_graduate in course.courses_graduates"
+                  .row
+                    .col-sm-20
+                      select.form-control.form-control-custom ng-options="graduate.id as graduate.name for graduate in graduates" ng-model="course_graduate.graduate_id"
+                    .col-sm-4
+                      button.btn.btn-danger type="button" ng-click="remove_graduate($parent.course, course_graduate)" 
+                        span.glyphicon.glyphicon-remove aria-hidden="true" 
+              .col-sm-2
+                button.btn.btn-danger type="button" ng-click="remove_course(course)" 
+                  span.glyphicon.glyphicon-remove aria-hidden="true" 
+
+          .col-sm-8.col-sm-offset-8.form-group
+            button.btn.btn-success.btn-save type="button" ng-click="update()" Save

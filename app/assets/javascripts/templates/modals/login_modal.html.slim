@@ -1,0 +1,40 @@
+.modal-header
+  h3.modal-title ng-if="signing_in" Login
+  h3.modal-title ng-if="registration" Register
+.modal-body
+  div ng-if="registration"
+    .form-group
+      label E-mail
+      input.form-control name="email" ng-model="registration_form.email" required="required" type="email" /
+    .form-group
+      label Password
+      input.form-control name="password" ng-model="registration_form.password" required="required" type="password" /
+    .form-group
+      label Confirm Password
+      input.form-control name="password_confirmation" ng-model="registration_form.password_confirmation" required="required" type="password" /
+  div ng-if="signing_in"
+    .form-group
+      label E-mail
+      input.form-control name="email" ng-model="login_form.email" required="required" type="email" /
+    .form-group
+      label Password
+      input.form-control name="password" ng-model="login_form.password" required="required" type="password" /
+
+  div ng-repeat="error in errors track by $index"
+    .alert.alert-danger {{error}}
+
+  a ng-click="switch()" ng-if="signing_in" Don't have an account? Register
+  a ng-click="switch()" ng-if="registration" Already have an account? Login
+
+  hr
+  p Login via social networks:
+  .oauth
+    i.fa.fa-facebook-square.facebook ng-click="facebook_auth()"
+    i.fa.fa-google-plus.google ng-click="google_auth()"
+
+.modal-footer
+  button.btn.btn-primary ng-click="register()" ng-if="registration" type="button" Register
+  button.btn.btn-primary ng-click="login()" ng-if="signing_in" type="button" Login
+  button.btn.btn-warning ng-click="cancel()" type="button"  Cancel
+
+

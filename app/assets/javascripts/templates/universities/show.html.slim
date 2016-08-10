@@ -1,0 +1,36 @@
+.col-sm-16.col-xs-24.col-sm-offset-4.universities-container
+.container-fluid
+  .row
+    .col-sm-16.no-padding-all.col-sm-offset-4
+      .container-fluid
+        .row
+          .col-sm-24.no-padding-all
+            img.show-avatar ng-src="{{university.avatar.original}}"
+          .col-sm-24.no-padding-all.show-title-container
+            h1 {{university.name}}
+            h2 ng-if="university.city && university.country" {{university.city.name}}, {{university.country.name}}
+          .col-sm-24.group
+            h1 Main info
+            table.table.table-bordered
+              tbody
+                tr 
+                  td Country
+                  td {{university.country.name || 'No data'}}
+                tr 
+                  td City
+                  td {{university.city.name || 'No data'}}
+                tr 
+                  td Foreign students allowed
+                  td {{university.foreign_students ? 'Yes' : 'No'}}
+                tr 
+                  td Provides dormitory
+                  td {{university.provides_dormitory ? 'Yes' : 'No'}}
+                tr
+                  td Website
+                  td {{university.current_info.web_site || 'No data'}}
+                tr
+                  td Note
+                  td {{university.current_info.note || 'No data'}}
+                tr
+                  td Study Languages
+                  td {{university.current_info.study_languages.joins(", ")}}

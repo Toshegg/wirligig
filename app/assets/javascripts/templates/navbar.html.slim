@@ -1,0 +1,28 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand ui-sref="main.index" Wirligig
+    div
+      ul.nav.navbar-nav.navbar-right
+        li ui-sref-active= 'active' ng-if="user.is_admin || user.is_partner"
+          a ui-sref="main.universities.create"  Add university
+        li ui-sref-active= 'active' 
+          a ui-sref="main.universities.index"  Universities
+        li ui-sref-active= 'active' ng-if="user.is_admin"
+          a ui-sref="main.vocs" Vocabularies
+        li uib-dropdown="" ng-if="user.is_admin" ui-sref-active="active"
+          a id="simple-dropdown" uib-dropdown-toggle="" Admin
+          ul class="dropdown-menu" uib-dropdown-menu="" aria-labelledby="simple-dropdown"
+            li
+              a ui-sref="main.admin.users" User manage
+        li ng-if="!(user | isEmpty) && !user.is_paid"
+          a ng-click="pay()" Pay
+        li
+          a ng-if="(user | isEmpty)" ng-click="open_login_modal()" Login/Register
+          a ng-if="!(user | isEmpty)" ng-click="logout()" Logout
+          span.sr-only (current)

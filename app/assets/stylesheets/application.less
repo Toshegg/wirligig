@@ -1,0 +1,507 @@
+/*
+ *= require jquery.mCustomScrollbar.min
+ *= require_self
+ */
+
+@import "twitter/bootstrap.less";
+@import (reference) "variables.less";
+@import "font-awesome";
+@import "awesome-bootstrap-checkbox";
+@import (reference) "mixins";
+@import "landing";
+
+@font-face {
+  font-family: 'Arciform'; /* Имя шрифта */
+  src: asset-url('Arciform.otf');
+}
+
+* {
+  font-family: 'Arciform';
+}
+textarea {
+  resize: none;
+}
+*:focus {
+  outline: none !important;
+}
+
+body {
+  background-color: transparent;
+}
+
+html {
+  background: asset-url('background-image_blue.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html, body {
+  height: 100%;
+}
+
+.btn-add {
+  margin-bottom: 15px;
+}
+
+.btn-filter-container {
+  height: 40px; 
+}
+
+.filter-container {
+  margin-bottom: 15px;
+}
+
+.show-grid {
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.body-container() {
+  padding-top: 70px; 
+}
+
+//============= NAVBAR ============
+
+.navbar-default .navbar-nav > li {
+  font-size: 20px;
+  border-bottom: 6px solid @panel-bg;
+
+  &:hover, &.active {
+    border-bottom: 6px solid @brand-color;
+  }
+}
+
+.navbar {
+  border: 0;
+}
+
+a.navbar-brand {
+  font-size: 45px;
+  font-family: 'Arciform';
+  letter-spacing: 2px;
+  margin-top: 3%;
+}
+
+//======== Universities Index Panels ==========
+
+.thumbnail {
+  border: 0;
+  & > .thumbnail-content {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 19px 2px rgba(136,136,136,1);
+    -moz-box-shadow: 0px 0px 19px 2px rgba(136,136,136,1);
+    box-shadow: 0px 0px 19px 2px rgba(136,136,136,1);
+
+    &:hover {
+      -webkit-box-shadow: 0px 0px 19px 5px rgba(136,136,136,1);
+      -moz-box-shadow: 0px 0px 19px 5px rgba(136,136,136,1);
+      box-shadow: 0px 0px 19px 5px rgba(136,136,136,1);
+    }
+
+  }
+}
+
+
+.caption-text {
+  font-size: 20px;
+  text-align: center;
+}
+
+.universities-container {
+  height: 100%;
+  background-color: #FFF;
+  position: fixed;
+  top: 0;
+  z-index: -999;
+  margin-top: 0;
+}
+
+//=========== Universities search tool ==============
+
+.search-universities {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.inner-search {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+select.left-search-select {
+  border-radius: 0;//7px 0 0 7px;
+  height: 55px;
+}
+
+select.search-select {
+  border-radius: 0;
+  height: 55px;
+  font-size: 20px;
+}
+
+input.search-input {
+  border-radius: 0;
+  height: 55px;
+  font-size: 20px;
+}
+
+.btn-go {
+  border-radius: 0;//0 7px 7px 0;
+  width: 100%;
+  height: 55px;
+  padding: 0; 
+  background: @red-color;
+  font-size: 20px;
+
+  &:hover {
+    background: darken(@red-color, 10%);
+  }
+}
+
+.row {
+  &.no-gutters {
+    
+    margin-right: 0;
+    margin-left: 0;
+
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &.without-margin {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+[class^="col-"].no-padding {
+  &-right {
+    padding-right: 0; 
+  }
+  &-left {
+    padding-left: 0;
+  }
+  &-all {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.content {
+  padding-top: 65px;
+}
+
+.form-control-custom {
+  border: 0;
+  box-shadow: none;
+  border-bottom: 2px solid gray;
+  border-radius: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.show-title-container {
+  text-align: center;
+  background: @blue;
+
+  & > h1 {
+    color: #fff;
+  }
+
+  & > h2 {
+    color: #fff;
+  }
+}
+
+.adduniversity-title{
+  background: @blue;
+  text-align: center;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: -5px;
+  font-family: 'Arciform';
+  font-size: 36px;
+  padding: 10px;
+  color: white;
+}
+.form-video{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.skip{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: gray;
+  text-decoration: underline;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
+.step1{
+  font-size: 36px;
+  font-family: 'Arciform';
+  color: @blue;
+  border: 2px dashed #a9aaa4;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-top: 20px;
+  background: white;
+}
+.howto{
+  background: @blue;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-family: 'Arciform';
+  color: white;
+}
+
+.group {
+  margin-top: 20px;
+}
+
+.voc-table {
+  th {
+    width: 5%;
+  }  
+  th:first-child {
+    width: 90%;
+  }
+}
+
+.btn {
+  border-radius: 0;
+  border: 0;
+
+  & > span {
+    line-height: inherit;
+  }
+  &.btn-warning {
+    background: @orange;
+  }
+
+  &.btn-success {
+    background: @blue;
+    &.btn-save {
+      font-size: 40px;
+      width: 100%;
+    }
+  }
+
+  &.btn-danger {
+    background: @red-color;
+  }
+}
+
+.voc-title {
+  & > h3 {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  & > button {
+    display: inline-block;
+  }
+}
+
+.modal-content {
+  border-radius: 0;
+  & > .modal-header {
+    background: @blue;
+    color: #fff;
+  }
+
+  & > .modal-footer {
+    border-radius: 0;
+  }
+
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+main {
+    /* start 'enter' transition */
+    &.ng-enter {
+        /* transition on enter for .5s */
+        transition: .5s;
+ 
+        /* start with opacity 0 (invisible) */
+        opacity: 0;
+    }
+ 
+    /* end 'enter' transition */
+    &.ng-enter-active {
+        /* end with opacity 1 (fade in) */
+        opacity: 1;
+    }
+}
+
+.mCSB_container_wrapper>.mCSB_container {
+  padding-right: 0;
+}
+
+.mCSB_container_wrapper {
+  margin-right: 0;
+}
+
+i.university-actions{
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  &:hover {
+    color: @gray;
+  }
+
+  &.destroy-university {
+    right: 20px; 
+  }
+
+  &.edit-university {
+    right: 45px;
+  }
+}
+
+.upload-queue {
+  width: 100%;
+  background: #7AD1EF;
+  margin-top: 20px;
+  text-align: center;
+  min-height: 150px;
+  line-height: 150px;
+
+  & > ul {
+    line-height: 22px;
+    list-style: none;
+    padding: 0;
+    padding-bottom: 18px;
+    font-size: 20px;
+
+    & > li > i {
+      margin-left: 5px;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+  .btn;
+  .btn-success;
+  font-size: 26px;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  line-height: normal;
+
+  & > i {
+    margin-right: 10px;
+  }
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: #fff;
+}
+
+
+.avatar-container {
+  height: 200px;
+  overflow: hidden;
+}
+.avatar {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.show-avatar {
+  width: 100%;
+  height: auto;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 5px;
+  border-radius: 0;
+  background: #505050;
+
+  & > li > a {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      background: #424242;
+    }
+  }
+}
+
+.user-email {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+ul.nav > li {
+  cursor: pointer;
+}
+
+.oauth {
+  font-size: 30px;
+
+  & > i {
+    display: inline-block;
+    cursor: pointer;
+    
+    &.facebook {
+      margin-right: 10px;
+      color: @blue;
+      &:hover {
+        color: darken(@blue, 10%);
+      }
+    }
+
+    &.google {
+      color: red;
+      &:hover {
+        color: darken(red, 10%);
+      }  
+    }
+
+  }
+}
+
+p.pay {
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+}
