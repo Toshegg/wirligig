@@ -1,4 +1,4 @@
-== Run project
+# Run project
 
 To run this project you should do few steps:
 
